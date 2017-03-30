@@ -1,0 +1,253 @@
+// ============================================================== //
+// Signal transduction/metabolic reactions -
+#pragma::metabolic_reaction_handler
+//
+// Record:
+// name (unique),reactants,products,reverse,forward
+//
+// Notes:
+// [] = system (not tracked)
+//
+// ============================================================= //
+
+// ======================================================================
+// GLYCOLYSIS/ GLUCONEOGENESIS
+// ======================================================================
+// Glucokinase (glk) EC 2.7.1.2
+R_glk_hex,M_pep_c+M_glc_D_e,M_pyr_c+M_g6p_c,0,inf
+R_glk_atp,M_atp_c+M_glc_D_c,M_adp_c+M_g6p_c,0,inf
+
+// Phosphoglucose isomerase (pgi) 5.3.1.9
+R_pgi,M_g6p_c,M_f6p_c,-inf,inf
+
+// Phosphofructokinase (pfk) 2.7.1.11
+R_pfk,M_atp_c+M_f6p_c,M_adp_c+M_fdp_c,0,inf
+
+// Fructose-1,6-bisphosphate aldolase (fdp) 3.1.3.11
+R_fdp,M_fdp_c+M_h2o_c,M_f6p_c+M_pi_c,0,inf
+
+// Fructose-1,6-bisphosphatase (fbaA) 4.1.2.13
+R_fbaA,M_fdp_c,M_dhap_c+M_g3p_c,-inf,inf
+
+// Triosphosphate isomerase (tpiA) 5.3.1.1
+R_tpiA,M_dhap_c,M_g3p_c,-inf,inf
+
+// Glyceraldehyde-3-phosphate dehydrogenase (gapA) 1.2.1.12
+R_gapA,M_g3p_c+M_nad_c+M_pi_c,M_13dpg_c+M_h_c+M_nadh_c,-inf,inf
+
+// Phosphoglycerate kinase (pgk) 2.7.2.3
+R_pgk,M_13dpg_c+M_adp_c,M_3pg_c+M_atp_c,-inf,inf
+
+// Phosphoglycerate mutase (gpm) 5.4.2.11
+R_gpm,M_3pg_c,M_2pg_c,-inf,inf
+
+// Enolase (eno) 4.2.1.11
+R_eno,M_2pg_c,M_h2o_c+M_pep_c,-inf,inf
+
+// Pyruvate kinase (pykAF) 2.7.1.40
+R_pyk,M_adp_c+M_pep_c,M_atp_c+M_pyr_c,0,inf
+//R_pyk_g,M_gdp_c+M_pep_c,M_gtp_c+M_pyr_c,0,inf
+//R_pyk_u,M_udp_c+M_pep_c,M_utp_c+M_pyr_c,0,inf
+//R_pyk_c,M_cdp_c+M_pep_c,M_ctp_c+M_pyr_c,0,inf
+
+// PEP carboxykinase (pck) 4.1.1.49
+R_pck,M_atp_c+M_oaa_c,M_adp_c+M_co2_c+M_pep_c,0,inf
+
+// PEP carboxylase (ppc) 4.1.1.31
+R_ppc,M_co2_c+M_h2o_c+M_pep_c,M_oaa_c+M_pi_c,0,inf
+
+// Pyruvate dehydrogenase (pdh) 1.2.1.4; 2.3.1.12; 1.8.1.4
+R_pdh,M_coa_c+M_nad_c+M_pyr_c,M_accoa_c+M_co2_c+M_nadh_c+M_h_c,0,inf
+
+// PEP synthase (pps) 2.7.9.2
+R_pps,M_atp_c+M_h2o_c+M_pyr_c,M_amp_c+M_pep_c+M_pi_c,0,inf
+
+// ======================================================================
+// PENTOSE PHOSPHATE PATHWAY
+// ======================================================================
+// Glucose-6-phosphate dehydrogenase (zwf) 1.1.1.49
+R_zwf,M_g6p_c+M_nadp_c,M_6pgl_c+M_h_c+M_nadph_c,-inf,inf
+
+// 6-Phosphogluconolactonase (pgl) 3.1.1.31
+R_pgl,M_6pgl_c+M_h2o_c,M_6pgc_c,0,inf
+
+// 6-Phosphogluconate dehydrogenase(gnd) 1.1.1.44
+R_gnd,M_6pgc_c+M_nadp_c,M_co2_c+M_nadph_c+M_ru5p_D_c+M_h_c,0,inf
+
+// Ribose-5-phosphate epimerase (rpe) 5.1.3.1
+R_rpe,M_ru5p_D_c,M_xu5p_D_c,-inf,inf
+
+// Ribose-5-phosphate isomerase (rpi) 5.1.3.6
+R_rpi,M_r5p_c,M_ru5p_D_c,-inf,inf
+
+// Transaldolase (talAB) 2.2.1.2
+R_talAB,M_g3p_c+M_s7p_c,M_e4p_c+M_f6p_c,-inf,inf
+
+// Transketolase 1 (tktA) 2.2.1.1
+R_tkt1,M_r5p_c+M_xu5p_D_c,M_g3p_c+M_s7p_c,-inf,inf
+
+// Transketolase 2 (tktB) 2.2.1.1
+R_tkt2,M_e4p_c+M_xu5p_D_c,M_f6p_c+M_g3p_c,-inf,inf
+
+// ======================================================================
+// ENTNER-DOUDOROFF (ED) PATHWAY -
+// ======================================================================
+// 6-Phosphogluconate dehydrase (edd) 4.2.1.12
+R_edd,M_6pgc_c,M_2ddg6p_c+M_h2o_c,0,inf
+
+// 2-Keto-3-deoxy-6-phospho-gluconate aldolase (eda) 4.1.2.14
+R_eda,M_2ddg6p_c,M_g3p_c+M_pyr_c,0,inf
+
+// ======================================================================
+// TCA CYCLE
+// ======================================================================
+// Citrate synthase (gltA) 2.3.3.1
+R_gltA,M_accoa_c+M_h2o_c+M_oaa_c,M_cit_c+M_coa_c,0,inf
+
+// Aconitase (acn) 4.2.1.3
+R_acn,M_cit_c,M_icit_c,-inf,inf
+
+// Isocitrate dehydrogenase (icd) 1.1.1.42
+R_icd,M_icit_c+M_nadp_c,M_akg_c+M_co2_c+M_nadph_c+M_h_c,-inf,inf
+
+// 2-Ketoglutarate dehydrogenase (sucAB) 1.2.4.2; 2.3.1.61; 1.8.1.4
+R_sucAB,M_akg_c+M_coa_c+M_nad_c,M_co2_c+M_nadh_c+M_succoa_c+M_h_c,0,inf
+
+// Succinate thiokinase (sucCD) 6.2.1.5
+R_sucCD,M_adp_c+M_pi_c+M_succoa_c,M_atp_c+M_coa_c+M_succ_c,0,inf
+
+// Succinate dehydrogenase (sdhABCD) 1.3.5.1
+R_sdh,M_q8_c+M_succ_c,M_fum_c+M_q8h2_c,0,inf
+
+// Fumurate reductase (frdABCD) 1.3.5.4
+R_frd,M_fum_c+M_mql8_c,M_mqn8_c+M_succ_c,0,inf
+
+// Fumarase (fumAB) 4.2.1.2
+R_fum,M_fum_c+M_h2o_c,M_mal_L_c,-inf,inf
+
+// Malate dehydrogenase (mdh) 1.1.1.37
+R_mdh,M_mal_L_c+M_nad_c,M_oaa_c+M_h_c+M_nadh_c,-inf,inf
+
+// ===========================================
+// Glutamate/Glutamine Metabolism
+// ===========================================
+//Glutamate dehydrogenase (gdhA) 1.4.1.4
+R_gdhA,M_akg_c+M_nadph_c+M_nh3_c+M_h_c,M_glu_L_c+M_h2o_c+M_nadp_c,-inf,inf
+
+//Glutamine 6.3.1.2
+R_glnA,M_glu_L_c+M_atp_c+M_nh3_c,M_gln_L_c+M_adp_c+M_pi_c,0,inf
+
+// Glutamate 1.4.1.13
+R_gltBD,M_gln_L_c+M_akg_c+M_nadph_c+M_h_c,2.0*M_glu_L_c+M_nadp_c,0,inf
+
+//Glutamine Degradation 3.5.1.2
+R_gln_deg,M_gln_L_c+M_h2o_c,M_nh3_c+M_glu_L_c,0,inf
+
+// ===========================================
+// OXIDATIVE PHOSPHORYLATION
+// ===========================================
+// Cytochrome oxidase bd (cyd) 1.9.3.1
+R_cyd,2*M_h_c+0.5*M_o2_c+M_q8h2_c,M_h2o_c+M_q8_c+2*M_he_c,0,inf
+
+// Cytochrome oxidase bo (cyo) 1.9.3.1
+//R_cyo,4*M_h_c+0.5*M_o2_c+M_q8h2_c,M_h2o_c+M_q8_c+4*M_he_c,0,inf
+//1.6.5.3
+R_app,2*M_h_c+M_mql8_c+0.5*M_o2_c,M_h2o_c+M_mqn8_c+2*M_he_c,0,inf
+
+// ATP synthase (atp) 3.6.3.14
+R_atp,M_adp_c+M_pi_c+4*M_he_c,M_atp_c+4*M_h_c+M_h2o_c,0,inf
+// ===========================================
+// COFACTORS
+// ===========================================
+// NADH:ubiquinone oxidoreductase (nuo) 1.6.5.3
+R_nuo,3*M_h_c+M_nadh_c+M_q8_c,M_nad_c+M_q8h2_c+2*M_he_c,0,inf
+
+// Transhydrogenase (pntAB) 1.6.1.2
+R_pnt1,M_nad_c+M_nadph_c,M_nadh_c+M_nadp_c,0,inf
+//1.6.1.1
+R_pnt2,M_nadh_c+M_nadp_c+2*M_he_c,2*M_h_c+M_nad_c+M_nadph_c,0,inf
+
+// NADH dehydrogenase (ndh) 1.6.5.3
+R_ndh1,M_h_c+M_nadh_c+M_q8_c,M_nad_c+M_q8h2_c,0,inf
+R_ndh2,M_h_c+M_mqn8_c+M_nadh_c,M_mql8_c+M_nad_c,0,inf
+
+// Inorganic pyrophosphatase (ppa) 3.6.1.1
+R_ppa,M_ppi_c+M_h2o_c,2*M_pi_c,0,inf
+
+// ======================================================================
+// ANAPLEUROTIC/GLYOXYLATE REACTIONS
+// ======================================================================
+// Isocitrate lyase (aceA) 4.1.3.1
+R_aceA,M_icit_c,M_glx_c+M_succ_c,0,inf
+
+// Malate synthase (aceB) 2.3.3.9
+R_aceB,M_accoa_c+M_glx_c+M_h2o_c,M_coa_c+M_mal_L_c,0,inf
+
+// Malic enzyme (maeAB) 1.1.1.38
+R_maeA,M_mal_L_c+M_nad_c,M_co2_c+M_nadh_c+M_pyr_c+M_h_c,0,inf
+// EC 1.1.1.40
+R_maeB,M_mal_L_c+M_nadp_c,M_co2_c+M_nadph_c+M_pyr_c+M_h_c,0,inf
+
+// ======================================================================
+// OVERFLOW METABOLISM
+// ======================================================================
+// Acetate synthesis - 2.3.1.8
+R_pta,M_accoa_c+M_pi_c,M_actp_c+M_coa_c,-inf,inf
+//EC 2.7.2.1
+R_ackA,M_actp_c+M_adp_c,M_ac_c+M_atp_c,-inf,inf
+
+// Acetyl-CoA synthetase (acs) 6.2.1.1
+R_acs,M_ac_c+M_atp_c+M_coa_c,M_accoa_c+M_amp_c+M_ppi_c,0,inf
+
+// Alcohol dehydrogenase (adhE) 1.2.1.10; 1.1.1.1
+R_adhE,M_accoa_c+2*M_h_c+2*M_nadh_c,M_coa_c+M_etoh_c+2*M_nad_c,-inf,inf
+
+// Lactate dehydrogenase (ldh) 1.1.1.27
+R_ldh,M_pyr_c+M_nadh_c+M_h_c,M_lac_D_c+M_nad_c,-inf,inf
+
+// Pyruvate formate lyase (pflAB) 2.3.1.54
+R_pflAB,M_coa_c+M_pyr_c,M_accoa_c+M_for_c,0,inf
+
+//EC 3.6.1.3
+R_atp_adp,M_atp_c+M_h2o_c,M_adp_c+M_pi_c,0,inf
+
+//EC 2.7.4.3
+R_adk_atp,M_amp_c+M_atp_c,2.0*M_adp_c,0,inf
+
+//R_biomass,40.2*M_atp_c+15.7*M_nadph_c+0.33*M_g6p_c+0.07*M_f6p_c+0.96*M_r5p_c+0.36*M_e4p_c+0.36*M_g3p_c+0.86*M_3pg_c+0.77*M_pep_c+2.94*M_pyr_c+2.41*M_accoa_c+1.65*M_oaa_c+1.28*M_akg_c+3*M_nad_c+40.2*M_h2o_c,M_bio_c+3*M_nadh_c+40.2*M_adp_c+2.41*M_coa_c+15.7*M_nadp_c+40.2*M_pi_c,0,inf
+//R_biomass,1.496*M_3pg_c+3.7478*M_accoa_c+59.81*M_atp_c+0.361*M_e4p_c+0.0709*M_f6p_c+0.129*M_g3p_c+0.205*M_g6p_c+0.2557*M_gln_L_c+4.9414*M_glu_L_c+59.81*M_h2o_c+3.547*M_nad_c+13.0279*M_nadph_c+1.7867*M_oaa_c+0.5191*M_pep_c+2.8328*M_pyr_c+0.8977*M_r5p_c,59.81*M_adp_c+4.1182*M_akg_c+3.7478*M_coa_c+3.547*M_nadh_c+13.0279*M_nadp_c+59.81*M_pi_c+M_bio_c,0,inf
+R_Biomass_Ecoli_core_w_GAM,1.496*M_3pg_c+3.7478*M_accoa_c+59.81*M_atp_c+0.361*M_e4p_c+0.0709*M_f6p_c+0.129*M_g3p_c+0.205*M_g6p_c+0.2557*M_gln_L_c+4.9414*M_glu_L_c+59.81*M_h2o_c+3.547*M_nad_c+13.0279*M_nadph_c+1.7867*M_oaa_c+0.5191*M_pep_c+2.8328*M_pyr_c+0.8977*M_r5p_c,59.81*M_adp_c+4.1182*M_akg_c+3.7478*M_coa_c+59.81*M_h_c+3.547*M_nadh_c+13.0279*M_nadp_c+59.81*M_pi_c+M_bio_c,0,inf
+// ===========================================
+// EXCHANGE
+// ===========================================
+// co2 and o2 exchange -
+M_o2_c_exchange,M_o2_e,M_o2_c,0,inf
+M_co2_c_exchange,M_co2_c,M_co2_e,0,inf
+M_h_c_exchange,M_h_c,M_h_e,-inf,inf
+
+// elemental exchange -
+M_h2o_c_exchange,M_h2o_e,M_h2o_c,-inf,inf
+M_pi_c_exchange,M_pi_e,M_pi_c,-inf,inf
+M_nh3_c_exchange,M_nh3_e,M_nh3_c,-inf,inf
+
+// Glucose and byproduct exchange -
+M_glc_D_c_exchange,M_glc_D_e,[],0,inf
+M_gln_L_c_exchange,M_atp_c+M_gln_L_e+M_h2o_c,M_adp_c+M_gln_L_c+M_pi_c,0,inf
+M_glu_L_c_exchange,M_glu_L_e,[],0,inf
+M_pyr_c_exchange,M_pyr_c,M_pyr_e,0,inf
+M_ac_c_exchange,M_ac_c,M_ac_e,-inf,inf
+M_ac_e_disappear,M_ac_e,[],0,inf
+M_lac_D_c_exchange,M_lac_D_c,M_lac_D_e,0,inf
+M_succ_c_exchange,M_succ_c,M_succ_e,0,inf
+M_mal_L_c_exchange,M_mal_L_c,M_mal_L_e,0,inf
+M_fum_c_exchange,M_fum_c,M_fum_e,0,inf
+M_etoh_c_exchange,M_etoh_c,M_etoh_e,0,inf
+M_etoh_e_disappear,M_etoh_e,[],0,inf
+M_for_c_exchange,M_for_c,M_for_e,0,inf
+M_for_e_disappear,M_for_e,[],0,inf
+M_bio_exchange,M_bio_c,M_bio_e,0,inf
+M_bio_disappear,M_bio_e,[],0,inf
+
+// test -
+M_atp_exchange,M_atp_c,[],0,inf
+M_adp_exchange,[],M_adp_c,0,inf
