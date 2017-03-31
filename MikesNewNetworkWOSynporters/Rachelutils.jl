@@ -28,10 +28,10 @@ end
 function mass_balances(t, y, data_dictionary,mode)
 	# load the data dictionary -
 	eps = .01
-	growth_flux_id = 83
-	glucose_species_id = 65
+	growth_flux_id = 84
+	glucose_species_id = 64
 	S = data_dictionary["stoichiometric_matrix"]
-	data_dictionary=setBounds(data_dictionary, y[60], y[glucose_species_id], mode) #biomass is species #124
+	data_dictionary=setBounds(data_dictionary, y[59], y[glucose_species_id], mode) #biomass is species #124
 	# solve the lp problem -
 	(objective_value, flux_array, dual_array, uptake_array, exit_flag) = FluxDriver(data_dictionary)
 	@show flux_array[74], flux_array[75], flux_array[76], flux_array[99], flux_array[100]
@@ -266,17 +266,17 @@ function dFBA(mode)
 	(objective_value, flux_array_ss, dual_array, uptake_array, exit_flag) = FluxDriver(data_dictionary)
 	inital_conditions =fill(0.0,size(data_dictionary["list_of_metabolite_symbols"], 1),1)
 	#make glucose non zero
-	inital_conditions[65]=10.0
-	inital_conditions[59]=.25 #make acetate initial condition non zero
-	inital_conditions[60] = .003 #make biomass non zero
+	inital_conditions[64]=10.0
+	inital_conditions[58]=.25 #make acetate initial condition non zero
+	inital_conditions[59] = .003 #make biomass non zero
 	res=eulerIntegration(inital_conditions, mass_balances, time, data_dictionary, mode)
 	@show size(res)
 	#ac_c = 7, ac_b, 73
 	#biomass 94
 	if(mode =="aerobic")
-		plotdFBAResultsAgainstDataAerobic(time, data_dictionary, res, [60,59,65])
+		plotdFBAResultsAgainstDataAerobic(time, data_dictionary, res, [59,58,64])
 	elseif(mode == "anaerobic")
-		plotdFBAResultsAgainstDataAnaerobic(time, data_dictionary, res, [59,60,62,63,65])
+		plotdFBAResultsAgainstDataAnaerobic(time, data_dictionary, res, [58,59,61,62,64])
 	end
 	
 end

@@ -25,7 +25,7 @@
 # ----------------------------------------------------------------------------------- #
 # Function: DataDictionary
 # Description: Holds simulation and model parameters as key => value pairs in a Julia Dict()
-# Generated on: 2017-03-31T09:17:29.06
+# Generated on: 2017-03-27T17:50:21.341
 #
 # Input arguments:
 # time_start::Float64 => Simulation start time value (scalar) 
@@ -131,34 +131,29 @@ function DataDictionary(time_start,time_stop,time_step)
 		0	100.0	;	# 87 M_h_e --> M_h_c
 		0	100.0	;	# 88 M_h2o_e --> M_h2o_c
 		0	100.0	;	# 89 M_h2o_c --> M_h2o_e
-		0	100.0	;	# 90 M_pi_e+M_h_e --> M_pi_c+M_h_c
-		0	100.0	;	# 91 M_pi_c+M_h_c --> M_pi_e+M_h_e
+		0	100.0	;	# 90 M_pi_e --> M_pi_c
+		0	100.0	;	# 91 M_pi_c --> M_pi_e
 		0	100.0	;	# 92 M_nh3_e --> M_nh3_c
 		0	100.0	;	# 93 M_nh3_c --> M_nh3_e
 		0	100.0	;	# 94 M_glc_D_e --> []
 		0	100.0	;	# 95 M_atp_c+M_gln_L_e+M_h2o_c --> M_adp_c+M_gln_L_c+M_pi_c
 		0	100.0	;	# 96 M_glu_L_e --> []
-		0	100.0	;	# 97 M_glu_L_e+M_h_e --> M_glu_L_c+M_h_c
-		0	100.0	;	# 98 M_glu_L_c+M_h_c --> M_glu_L_e+M_h_e
-		0	100.0	;	# 99 M_h_e+M_pyr_e --> M_pyr_c+M_h_c
-		0	100.0	;	# 100 M_pyr_c+M_h_c --> M_h_e+M_pyr_e
-		0	100.0	;	# 101 M_ac_c --> M_ac_e
-		0	100.0	;	# 102 M_ac_e --> M_ac_c
-		0	100.0	;	# 103 M_ac_e --> []
-		0	100.0	;	# 104 M_lac_D_c --> M_lac_D_e
-		0	100.0	;	# 105 2.0*M_h_e+M_succ_e --> M_h_c+M_succ_c
-		0	100.0	;	# 106 M_h_e+M_succ_c --> M_h_c+M_succ_e
-		0	100.0	;	# 107 M_mal_L_e+2.0*M_h_e --> M_mal_c+2.0*M_h_c
-		0	100.0	;	# 108 M_fum_c --> M_fum_e
-		0	100.0	;	# 109 M_etoh_c --> M_etoh_e
-		0	100.0	;	# 110 M_etoh_e --> []
-		0	100.0	;	# 111 M_for_c --> M_for_e
-		0	100.0	;	# 112 M_for_e+M_h_e --> M_for_c+M_h_c
-		0	100.0	;	# 113 M_for_e --> []
-		0	100.0	;	# 114 M_bio_c --> M_bio_e
-		0	100.0	;	# 115 M_bio_e --> []
-		0	100.0	;	# 116 M_atp_c --> []
-		0	100.0	;	# 117 [] --> M_adp_c
+		0	100.0	;	# 97 M_pyr_c --> M_pyr_e
+		0	100.0	;	# 98 M_ac_c --> M_ac_e
+		0	100.0	;	# 99 M_ac_e --> M_ac_c
+		0	100.0	;	# 100 M_ac_e --> []
+		0	100.0	;	# 101 M_lac_D_c --> M_lac_D_e
+		0	100.0	;	# 102 M_succ_c --> M_succ_e
+		0	100.0	;	# 103 M_mal_L_c --> M_mal_L_e
+		0	100.0	;	# 104 M_fum_c --> M_fum_e
+		0	100.0	;	# 105 M_etoh_c --> M_etoh_e
+		0	100.0	;	# 106 M_etoh_e --> []
+		0	100.0	;	# 107 M_for_c --> M_for_e
+		0	100.0	;	# 108 M_for_e --> []
+		0	100.0	;	# 109 M_bio_c --> M_bio_e
+		0	100.0	;	# 110 M_bio_e --> []
+		0	100.0	;	# 111 M_atp_c --> []
+		0	100.0	;	# 112 [] --> M_adp_c
 	];
 
 	# Setup default species bounds array - 
@@ -199,46 +194,45 @@ function DataDictionary(time_start,time_stop,time_step)
 		0.0	0.0	;	# 34 M_icit_c
 		0.0	0.0	;	# 35 M_lac_D_c
 		0.0	0.0	;	# 36 M_mal_L_c
-		0.0	0.0	;	# 37 M_mal_c
-		0.0	0.0	;	# 38 M_mql8_c
-		0.0	0.0	;	# 39 M_mqn8_c
-		0.0	0.0	;	# 40 M_nad_c
-		0.0	0.0	;	# 41 M_nadh_c
-		0.0	0.0	;	# 42 M_nadp_c
-		0.0	0.0	;	# 43 M_nadph_c
-		0.0	0.0	;	# 44 M_nh3_c
-		0.0	0.0	;	# 45 M_o2_c
-		0.0	0.0	;	# 46 M_oaa_c
-		0.0	0.0	;	# 47 M_pep_c
-		0.0	0.0	;	# 48 M_pi_c
-		0.0	0.0	;	# 49 M_ppi_c
-		0.0	0.0	;	# 50 M_pyr_c
-		0.0	0.0	;	# 51 M_q8_c
-		0.0	0.0	;	# 52 M_q8h2_c
-		0.0	0.0	;	# 53 M_r5p_c
-		0.0	0.0	;	# 54 M_ru5p_D_c
-		0.0	0.0	;	# 55 M_s7p_c
-		0.0	0.0	;	# 56 M_succ_c
-		0.0	0.0	;	# 57 M_succoa_c
-		0.0	0.0	;	# 58 M_xu5p_D_c
-		0.0	100.0	;	# 59 M_ac_e
-		0.0	1.0	;	# 60 M_bio_e
-		0.0	100.0	;	# 61 M_co2_e
-		0.0	100.0	;	# 62 M_etoh_e
-		0.0	100.0	;	# 63 M_for_e
-		0.0	100.0	;	# 64 M_fum_e
-		-2.5	0.0	;	# 65 M_glc_D_e
-		0.0	0.0	;	# 66 M_gln_L_e
-		0.0	0.0	;	# 67 M_glu_L_e
-		-100.0	100.0	;	# 68 M_h2o_e
-		-100.0	100.0	;	# 69 M_h_e
-		0.0	100.0	;	# 70 M_lac_D_e
-		0.0	100.0	;	# 71 M_mal_L_e
-		-100.0	100.0	;	# 72 M_nh3_e
-		-100.0	0.0	;	# 73 M_o2_e
-		-100.0	100.0	;	# 74 M_pi_e
-		0.0	100.0	;	# 75 M_pyr_e
-		0.0	100.0	;	# 76 M_succ_e
+		0.0	0.0	;	# 37 M_mql8_c
+		0.0	0.0	;	# 38 M_mqn8_c
+		0.0	0.0	;	# 39 M_nad_c
+		0.0	0.0	;	# 40 M_nadh_c
+		0.0	0.0	;	# 41 M_nadp_c
+		0.0	0.0	;	# 42 M_nadph_c
+		0.0	0.0	;	# 43 M_nh3_c
+		0.0	0.0	;	# 44 M_o2_c
+		0.0	0.0	;	# 45 M_oaa_c
+		0.0	0.0	;	# 46 M_pep_c
+		0.0	0.0	;	# 47 M_pi_c
+		0.0	0.0	;	# 48 M_ppi_c
+		0.0	0.0	;	# 49 M_pyr_c
+		0.0	0.0	;	# 50 M_q8_c
+		0.0	0.0	;	# 51 M_q8h2_c
+		0.0	0.0	;	# 52 M_r5p_c
+		0.0	0.0	;	# 53 M_ru5p_D_c
+		0.0	0.0	;	# 54 M_s7p_c
+		0.0	0.0	;	# 55 M_succ_c
+		0.0	0.0	;	# 56 M_succoa_c
+		0.0	0.0	;	# 57 M_xu5p_D_c
+		0.0	100.0	;	# 58 M_ac_e
+		0.0	1.0	;	# 59 M_bio_e
+		0.0	100.0	;	# 60 M_co2_e
+		0.0	100.0	;	# 61 M_etoh_e
+		0.0	100.0	;	# 62 M_for_e
+		0.0	100.0	;	# 63 M_fum_e
+		-2.5	0.0	;	# 64 M_glc_D_e
+		0.0	00.0	;	# 65 M_gln_L_e
+		0.0	00.0	;	# 66 M_glu_L_e
+		-100.0	100.0	;	# 67 M_h2o_e
+		-100.0	100.0	;	# 68 M_h_e
+		0.0	100.0	;	# 69 M_lac_D_e
+		0.0	100.0	;	# 70 M_mal_L_e
+		-100.0	100.0	;	# 71 M_nh3_e
+		-100.0	00.0	;	# 72 M_o2_e
+		-100.0	100.0	;	# 73 M_pi_e
+		0.0	100.0	;	# 74 M_pyr_e
+		0.0	100.0	;	# 75 M_succ_e
 	];
 
 	# Setup the objective coefficient array - 
@@ -332,34 +326,29 @@ function DataDictionary(time_start,time_stop,time_step)
 		0.0	;	# 87 M_h_c_exchange_reverse::M_h_e --> M_h_c
 		0.0	;	# 88 M_h2o_c_exchange::M_h2o_e --> M_h2o_c
 		0.0	;	# 89 M_h2o_c_exchange_reverse::M_h2o_c --> M_h2o_e
-		0.0	;	# 90 M_pi_synport::M_pi_e+M_h_e --> M_pi_c+M_h_c
-		0.0	;	# 91 M_pi_synport_reverse::M_pi_c+M_h_c --> M_pi_e+M_h_e
+		0.0	;	# 90 M_pi_c_exchange::M_pi_e --> M_pi_c
+		0.0	;	# 91 M_pi_c_exchange_reverse::M_pi_c --> M_pi_e
 		0.0	;	# 92 M_nh3_c_exchange::M_nh3_e --> M_nh3_c
 		0.0	;	# 93 M_nh3_c_exchange_reverse::M_nh3_c --> M_nh3_e
 		0.0	;	# 94 M_glc_D_c_exchange::M_glc_D_e --> []
 		0.0	;	# 95 M_gln_L_c_exchange::M_atp_c+M_gln_L_e+M_h2o_c --> M_adp_c+M_gln_L_c+M_pi_c
 		0.0	;	# 96 M_glu_L_c_exchange::M_glu_L_e --> []
-		0.0	;	# 97 M_glu_by_symport::M_glu_L_e+M_h_e --> M_glu_L_c+M_h_c
-		0.0	;	# 98 M_glu_by_symport_reverse::M_glu_L_c+M_h_c --> M_glu_L_e+M_h_e
-		0.0	;	# 99 M_pyr_synport::M_h_e+M_pyr_e --> M_pyr_c+M_h_c
-		0.0	;	# 100 M_pyr_synport_reverse::M_pyr_c+M_h_c --> M_h_e+M_pyr_e
-		0.0	;	# 101 M_ac_c_exchange::M_ac_c --> M_ac_e
-		0.0	;	# 102 M_ac_c_exchange_reverse::M_ac_e --> M_ac_c
-		0.0	;	# 103 M_ac_e_disappear::M_ac_e --> []
-		0.0	;	# 104 M_lac_D_c_exchange::M_lac_D_c --> M_lac_D_e
-		0.0	;	# 105 M_succ_synport::2.0*M_h_e+M_succ_e --> M_h_c+M_succ_c
-		0.0	;	# 106 M_succ_antiport::M_h_e+M_succ_c --> M_h_c+M_succ_e
-		0.0	;	# 107 M_mal_L_symport::M_mal_L_e+2.0*M_h_e --> M_mal_c+2.0*M_h_c
-		0.0	;	# 108 M_fum_c_exchange::M_fum_c --> M_fum_e
-		0.0	;	# 109 M_etoh_c_exchange::M_etoh_c --> M_etoh_e
-		0.0	;	# 110 M_etoh_e_disappear::M_etoh_e --> []
-		0.0	;	# 111 M_for_c_exchange::M_for_c --> M_for_e
-		0.0	;	# 112 M_formate_uptake_by_symport::M_for_e+M_h_e --> M_for_c+M_h_c
-		0.0	;	# 113 M_for_e_disappear::M_for_e --> []
-		0.0	;	# 114 M_bio_exchange::M_bio_c --> M_bio_e
-		0.0	;	# 115 M_bio_disappear::M_bio_e --> []
-		0.0	;	# 116 M_atp_exchange::M_atp_c --> []
-		0.0	;	# 117 M_adp_exchange::[] --> M_adp_c
+		0.0	;	# 97 M_pyr_c_exchange::M_pyr_c --> M_pyr_e
+		0.0	;	# 98 M_ac_c_exchange::M_ac_c --> M_ac_e
+		0.0	;	# 99 M_ac_c_exchange_reverse::M_ac_e --> M_ac_c
+		0.0	;	# 100 M_ac_e_disappear::M_ac_e --> []
+		0.0	;	# 101 M_lac_D_c_exchange::M_lac_D_c --> M_lac_D_e
+		0.0	;	# 102 M_succ_c_exchange::M_succ_c --> M_succ_e
+		0.0	;	# 103 M_mal_L_c_exchange::M_mal_L_c --> M_mal_L_e
+		0.0	;	# 104 M_fum_c_exchange::M_fum_c --> M_fum_e
+		0.0	;	# 105 M_etoh_c_exchange::M_etoh_c --> M_etoh_e
+		0.0	;	# 106 M_etoh_e_disappear::M_etoh_e --> []
+		0.0	;	# 107 M_for_c_exchange::M_for_c --> M_for_e
+		0.0	;	# 108 M_for_e_disappear::M_for_e --> []
+		0.0	;	# 109 M_bio_exchange::M_bio_c --> M_bio_e
+		0.0	;	# 110 M_bio_disappear::M_bio_e --> []
+		0.0	;	# 111 M_atp_exchange::M_atp_c --> []
+		0.0	;	# 112 M_adp_exchange::[] --> M_adp_c
 	];
 
 	# Min/Max flag - default is minimum - 
@@ -456,29 +445,24 @@ function DataDictionary(time_start,time_stop,time_step)
 		"M_h_c_exchange_reverse::M_h_e --> M_h_c"
 		"M_h2o_c_exchange::M_h2o_e --> M_h2o_c"
 		"M_h2o_c_exchange_reverse::M_h2o_c --> M_h2o_e"
-		"M_pi_synport::M_pi_e+M_h_e --> M_pi_c+M_h_c"
-		"M_pi_synport_reverse::M_pi_c+M_h_c --> M_pi_e+M_h_e"
+		"M_pi_c_exchange::M_pi_e --> M_pi_c"
+		"M_pi_c_exchange_reverse::M_pi_c --> M_pi_e"
 		"M_nh3_c_exchange::M_nh3_e --> M_nh3_c"
 		"M_nh3_c_exchange_reverse::M_nh3_c --> M_nh3_e"
 		"M_glc_D_c_exchange::M_glc_D_e --> []"
 		"M_gln_L_c_exchange::M_atp_c+M_gln_L_e+M_h2o_c --> M_adp_c+M_gln_L_c+M_pi_c"
 		"M_glu_L_c_exchange::M_glu_L_e --> []"
-		"M_glu_by_symport::M_glu_L_e+M_h_e --> M_glu_L_c+M_h_c"
-		"M_glu_by_symport_reverse::M_glu_L_c+M_h_c --> M_glu_L_e+M_h_e"
-		"M_pyr_synport::M_h_e+M_pyr_e --> M_pyr_c+M_h_c"
-		"M_pyr_synport_reverse::M_pyr_c+M_h_c --> M_h_e+M_pyr_e"
+		"M_pyr_c_exchange::M_pyr_c --> M_pyr_e"
 		"M_ac_c_exchange::M_ac_c --> M_ac_e"
 		"M_ac_c_exchange_reverse::M_ac_e --> M_ac_c"
 		"M_ac_e_disappear::M_ac_e --> []"
 		"M_lac_D_c_exchange::M_lac_D_c --> M_lac_D_e"
-		"M_succ_synport::2.0*M_h_e+M_succ_e --> M_h_c+M_succ_c"
-		"M_succ_antiport::M_h_e+M_succ_c --> M_h_c+M_succ_e"
-		"M_mal_L_symport::M_mal_L_e+2.0*M_h_e --> M_mal_c+2.0*M_h_c"
+		"M_succ_c_exchange::M_succ_c --> M_succ_e"
+		"M_mal_L_c_exchange::M_mal_L_c --> M_mal_L_e"
 		"M_fum_c_exchange::M_fum_c --> M_fum_e"
 		"M_etoh_c_exchange::M_etoh_c --> M_etoh_e"
 		"M_etoh_e_disappear::M_etoh_e --> []"
 		"M_for_c_exchange::M_for_c --> M_for_e"
-		"M_formate_uptake_by_symport::M_for_e+M_h_e --> M_for_c+M_h_c"
 		"M_for_e_disappear::M_for_e --> []"
 		"M_bio_exchange::M_bio_c --> M_bio_e"
 		"M_bio_disappear::M_bio_e --> []"
@@ -524,7 +508,6 @@ function DataDictionary(time_start,time_stop,time_step)
 		"M_icit_c"
 		"M_lac_D_c"
 		"M_mal_L_c"
-		"M_mal_c"
 		"M_mql8_c"
 		"M_mqn8_c"
 		"M_nad_c"

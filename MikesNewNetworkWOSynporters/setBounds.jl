@@ -30,8 +30,8 @@ function setBounds(data_dictionary, biomass, glucose_available, mode)
 		bounds[83,:]=[0,.01]
 #		bounds[73,:]=[00,0]
 #		bounds[99,:] = [0,0]
-		if(mode=="aerobic") #to make acetate uptake
-			species_bound_array[59,:]= [-4.0,-4]
+		if(mode=="aerbic")
+			species_bound_array[58,:]= [-4.0,-4]
 		end
 	end
 	data_dictionary["default_flux_bounds_array"] = bounds

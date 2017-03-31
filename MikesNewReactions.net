@@ -227,23 +227,30 @@ M_h_c_exchange,M_h_c,M_h_e,-inf,inf
 
 // elemental exchange -
 M_h2o_c_exchange,M_h2o_e,M_h2o_c,-inf,inf
-M_pi_c_exchange,M_pi_e,M_pi_c,-inf,inf
+//M_pi_c_exchange,M_pi_e,M_pi_c,-inf,inf
+M_pi_synport,M_pi_e+M_h_e,M_pi_c+M_h_c,-inf,inf
 M_nh3_c_exchange,M_nh3_e,M_nh3_c,-inf,inf
 
 // Glucose and byproduct exchange -
 M_glc_D_c_exchange,M_glc_D_e,[],0,inf
 M_gln_L_c_exchange,M_atp_c+M_gln_L_e+M_h2o_c,M_adp_c+M_gln_L_c+M_pi_c,0,inf
 M_glu_L_c_exchange,M_glu_L_e,[],0,inf
-M_pyr_c_exchange,M_pyr_c,M_pyr_e,0,inf
+M_glu_by_symport,M_glu_L_e+M_h_e, M_glu_L_c+M_h_c,-inf,inf
+//M_pyr_c_exchange,M_pyr_c,M_pyr_e,0,inf
+M_pyr_synport,M_h_e+M_pyr_e,M_pyr_c+M_h_c,-inf,inf
 M_ac_c_exchange,M_ac_c,M_ac_e,-inf,inf
 M_ac_e_disappear,M_ac_e,[],0,inf
 M_lac_D_c_exchange,M_lac_D_c,M_lac_D_e,0,inf
-M_succ_c_exchange,M_succ_c,M_succ_e,0,inf
-M_mal_L_c_exchange,M_mal_L_c,M_mal_L_e,0,inf
+//M_succ_c_exchange,M_succ_c,M_succ_e,0,inf
+M_succ_synport,2*M_h_e+M_succ_e,M_h_c+M_succ_c,0,inf
+M_succ_antiport,M_h_e+M_succ_c,M_h_c+M_succ_e,0,inf
+//M_mal_L_c_exchange,M_mal_L_c,M_mal_L_e,0,inf
+M_mal_L_symport,M_mal_L_e+2*M_h_e,M_mal_c+2*M_h_c,0,inf
 M_fum_c_exchange,M_fum_c,M_fum_e,0,inf
 M_etoh_c_exchange,M_etoh_c,M_etoh_e,0,inf
 M_etoh_e_disappear,M_etoh_e,[],0,inf
 M_for_c_exchange,M_for_c,M_for_e,0,inf
+M_formate_uptake_by_symport, M_for_e+M_h_e,M_for_c+M_h_c,0,inf
 M_for_e_disappear,M_for_e,[],0,inf
 M_bio_exchange,M_bio_c,M_bio_e,0,inf
 M_bio_disappear,M_bio_e,[],0,inf
